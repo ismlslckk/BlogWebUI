@@ -1,0 +1,14 @@
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\bin\Debug\netcoreapp2.1\BlogWebUI.deps.json
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\bin\Debug\netcoreapp2.1\BlogWebUI.runtimeconfig.json
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\bin\Debug\netcoreapp2.1\BlogWebUI.runtimeconfig.dev.json
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\bin\Debug\netcoreapp2.1\BlogWebUI.dll
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\bin\Debug\netcoreapp2.1\BlogWebUI.pdb
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\obj\Debug\netcoreapp2.1\BlogWebUI.csproj.CoreCompileInputs.cache
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\obj\Debug\netcoreapp2.1\BlogWebUI.RazorAssemblyInfo.cache
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\obj\Debug\netcoreapp2.1\BlogWebUI.RazorAssemblyInfo.cs
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\obj\Debug\netcoreapp2.1\BlogWebUI.AssemblyInfoInputs.cache
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\obj\Debug\netcoreapp2.1\BlogWebUI.AssemblyInfo.cs
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\obj\Debug\netcoreapp2.1\BlogWebUI.RazorTargetAssemblyInfo.cache
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\obj\Debug\netcoreapp2.1\BlogWebUI.dll
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\obj\Debug\netcoreapp2.1\BlogWebUI.pdb
+C:\Users\ismls\source\repos\BlogWebUI\BlogWebUI\obj\Debug\netcoreapp2.1\BlogWebUI.csprojAssemblyReference.cache
