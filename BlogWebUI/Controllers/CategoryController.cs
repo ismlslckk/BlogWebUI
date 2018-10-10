@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BlogWebUI.Dao;
 using BlogWebUI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogWebUI.Controllers
@@ -16,7 +17,7 @@ namespace BlogWebUI.Controllers
         public CategoryController(ICategoryDao categoryDao)
         {
             _categoryDao = categoryDao;
-        } 
+        }
 
         [HttpGet("all")]
         public IActionResult All()
@@ -28,8 +29,15 @@ namespace BlogWebUI.Controllers
         [HttpPost("add")]
         public IActionResult Add([FromForm]Category category)
         {
-            _categoryDao.Add(category);
-            return Ok(new { Message = "Kategori başarıyla eklendi."});
+            try
+            {
+                _categoryDao.Add(category);
+                return Ok(new { Message = "Kategori başarıyla eklendi." });
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Bir sorun oluştu,kategori eklenemedi.");
+            }
         }
     }
 }
