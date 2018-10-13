@@ -28,7 +28,7 @@ namespace BlogWebUI.Controllers
 
 
         [HttpPost("add")]
-        public RequestResponse Add([FromForm]Category category)
+        public RequestResponse Add([FromBody]Category category)
         {
             try
             {

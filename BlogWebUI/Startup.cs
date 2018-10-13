@@ -31,23 +31,24 @@ namespace BlogWebUI
         {
 
 
-            services.AddMvc();
+            
 
             //Access control allow origin'e izin vermek için(tüm sitelere izin vermek için bu şekilde yaparız,belirli sitelere izin vermek
             //içinse sadece services.AddCors() dedikten sonra Configure fonksyionunda istediğimiz siteleri tanımlarız.)
             services.AddCors(o => o.AddPolicy("policy", builder =>
             {
                 builder.AllowAnyOrigin()
+                .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader();
             }));
-
+            services.AddMvc();
             //IoC start
             var builders = new ContainerBuilder();
             builders.Populate(services);
 
             builders.RegisterType<DataContext>().SingleInstance();
-            builders.RegisterType<CategoryDaoImpl>().As<ICategoryDao>().SingleInstance(); 
+            builders.RegisterType<CategoryDaoImpl>().As<ICategoryDao>().SingleInstance();
 
 
             var container = builders.Build();
@@ -60,7 +61,7 @@ namespace BlogWebUI
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseCors(
-                options => options.WithOrigins("*").AllowAnyMethod()
+                options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader()
             );
             if (env.IsDevelopment())
             {

@@ -9,6 +9,8 @@ namespace BlogWebUI.AppClasses
     { 
         public bool IsError { get; set; }
         public string Message { get; set; }
+        public object data { get; set; }
+
 
         public void Ok(string message)
         {
