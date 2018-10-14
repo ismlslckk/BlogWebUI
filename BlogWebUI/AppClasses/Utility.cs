@@ -10,7 +10,7 @@ namespace BlogWebUI.AppClasses
         public static RequestResponse _requestResponse { get; set; }
 
 
-        public static RequestResponse OkResponse(string message)
+        public static RequestResponse OkResponse(object message)
         {
             if (_requestResponse == null)
                 _requestResponse = new RequestResponse();
@@ -18,7 +18,7 @@ namespace BlogWebUI.AppClasses
             return _requestResponse;
         }
 
-        public static RequestResponse ErrorResponse(string message)
+        public static RequestResponse ErrorResponse(object message)
         {
             if (_requestResponse == null)
                 _requestResponse = new RequestResponse();

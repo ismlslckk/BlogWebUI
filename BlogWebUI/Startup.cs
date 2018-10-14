@@ -7,6 +7,9 @@ using Autofac.Extensions.DependencyInjection;
 using BlogWebUI.Dao;
 using BlogWebUI.DaoImpl;
 using BlogWebUI.Data;
+using BlogWebUI.Models;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using static BlogWebUI.Models.Category;
 
 namespace BlogWebUI
 {
@@ -42,7 +46,9 @@ namespace BlogWebUI
                     .AllowAnyMethod()
                     .AllowAnyHeader();
             }));
-            services.AddMvc();
+            services.AddMvc().AddFluentValidation();
+            services.AddTransient<IValidator<Category>, CategoryValidator>();
+
             //IoC start
             var builders = new ContainerBuilder();
             builders.Populate(services);

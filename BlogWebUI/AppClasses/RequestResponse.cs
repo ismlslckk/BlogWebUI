@@ -8,17 +8,17 @@ namespace BlogWebUI.AppClasses
     public class RequestResponse
     { 
         public bool IsError { get; set; }
-        public string Message { get; set; }
+        public object Message { get; set; }
         public object data { get; set; }
 
 
-        public void Ok(string message)
+        public void Ok(object message)
         {
             Message = message;
             IsError = false;
         }
 
-        public void Error(string message)
+        public void Error(object message)
         {
             Message = message;
             IsError=true;

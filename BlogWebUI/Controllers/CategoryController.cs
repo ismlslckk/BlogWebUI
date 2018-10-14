@@ -7,6 +7,7 @@ using BlogWebUI.Dao;
 using BlogWebUI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BlogWebUI.Controllers
 {
@@ -30,6 +31,10 @@ namespace BlogWebUI.Controllers
         [HttpPost("add")]
         public RequestResponse Add([FromBody]Category category)
         {
+            if (!ModelState.IsValid)
+            { 
+                return Utility.ErrorResponse(ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList());
+            }
             try
             {
                 _categoryDao.Add(category);
