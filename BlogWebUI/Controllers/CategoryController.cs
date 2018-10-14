@@ -32,13 +32,27 @@ namespace BlogWebUI.Controllers
         public RequestResponse Add([FromBody]Category category)
         {
             if (!ModelState.IsValid)
-            { 
+            {
                 return Utility.ErrorResponse(ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList());
             }
             try
             {
                 _categoryDao.Add(category);
                 return Utility.OkResponse("Kategori başarıyla eklendi.");
+            }
+            catch (Exception ex)
+            {
+                return Utility.ErrorResponse(ex.Message);
+            }
+        }
+
+        [HttpGet("delete")]
+        public RequestResponse Delete(string id)
+        {
+            try
+            {
+                _categoryDao.Delete(id);
+                return Utility.OkResponse("Kategori başarıyla silindi.");
             }
             catch (Exception ex)
             {

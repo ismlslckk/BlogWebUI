@@ -32,7 +32,7 @@ namespace BlogWebUI.DaoImpl
 
         public void Delete(string id)
         {
-            throw new NotImplementedException();
+            CategoryCollection.DeleteOne(x => x.Id == id);
         }
 
         public Category GetById(string id)
