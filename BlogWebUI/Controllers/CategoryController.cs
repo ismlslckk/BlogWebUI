@@ -46,13 +46,34 @@ namespace BlogWebUI.Controllers
             }
         }
 
-        [HttpGet("delete")]
+        [HttpDelete("delete")]
         public RequestResponse Delete(string id)
         {
             try
             {
                 _categoryDao.Delete(id);
                 return Utility.OkResponse("Kategori başarıyla silindi.");
+            }
+            catch (Exception ex)
+            {
+                return Utility.ErrorResponse(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public RequestResponse getCategoryById(string id)
+        {
+            try
+            {
+                Category cat = _categoryDao.GetById(id);
+                if (cat == null)
+                    return Utility.ErrorResponse("Kategori bulunamadı.");
+                else
+                {
+                    Utility.SetData(cat);
+                    return Utility.OkResponse("");
+                }
+
             }
             catch (Exception ex)
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace BlogWebUI.AppClasses
 {
     public class RequestResponse
-    { 
+    {
         public bool IsError { get; set; }
         public object Message { get; set; }
         public object data { get; set; }
@@ -18,10 +18,16 @@ namespace BlogWebUI.AppClasses
             IsError = false;
         }
 
+        public void SetData(object data)
+        {
+            this.data = data;
+        }
+
+
         public void Error(object message)
         {
             Message = message;
-            IsError=true;
+            IsError = true;
         }
     }
 }

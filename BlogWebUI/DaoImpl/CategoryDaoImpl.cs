@@ -37,7 +37,7 @@ namespace BlogWebUI.DaoImpl
 
         public Category GetById(string id)
         {
-            throw new NotImplementedException();
+            return CategoryCollection.AsQueryable().FirstOrDefault(x => x.Id == id);
         }
 
         public void Update(Category p)

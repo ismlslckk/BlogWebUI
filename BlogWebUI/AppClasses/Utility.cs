@@ -18,6 +18,12 @@ namespace BlogWebUI.AppClasses
             return _requestResponse;
         }
 
+        public static void SetData(object data)
+        {
+            _requestResponse.SetData(data);
+        }
+
+
         public static RequestResponse ErrorResponse(object message)
         {
             if (_requestResponse == null)
