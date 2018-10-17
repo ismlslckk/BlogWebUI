@@ -80,5 +80,23 @@ namespace BlogWebUI.Controllers
                 return Utility.ErrorResponse(ex.Message);
             }
         }
+
+        [HttpPut("update")]
+        public RequestResponse update([FromBody]Category category)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Utility.ErrorResponse(ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList());
+            }
+            try
+            {
+                _categoryDao.Update(category);
+                return Utility.OkResponse("Kategori başarıyla güncellendi.");
+            }
+            catch (Exception ex)
+            {
+                return Utility.ErrorResponse(ex.Message);
+            }
+        }
     }
 }

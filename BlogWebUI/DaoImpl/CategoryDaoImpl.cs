@@ -5,6 +5,7 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace BlogWebUI.DaoImpl
@@ -40,9 +41,15 @@ namespace BlogWebUI.DaoImpl
             return CategoryCollection.AsQueryable().FirstOrDefault(x => x.Id == id);
         }
 
-        public void Update(Category p)
+        public void Update(Category c)
         {
-            throw new NotImplementedException();
+            Dictionary<string, object> filter = new Dictionary<string, object>();
+            foreach (PropertyInfo propertyInfo in c.GetType().GetProperties())
+            {
+                filter.Add(propertyInfo.Name, propertyInfo.GetValue(c));
+            }
+
+            CategoryCollection.ReplaceOne(x => x.Id == c.Id, c);
         }
     }
 }
