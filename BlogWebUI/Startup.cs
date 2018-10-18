@@ -55,6 +55,7 @@ namespace BlogWebUI
 
             builders.RegisterType<DataContext>().SingleInstance();
             builders.RegisterType<CategoryDaoImpl>().As<ICategoryDao>().SingleInstance();
+            builders.RegisterType<BlogDaoImpl>().As<IBlogDao>().SingleInstance();
 
 
             var container = builders.Build();
